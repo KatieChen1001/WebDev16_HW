@@ -1,0 +1,93 @@
+@import 'https://fonts.googleapis.com/css?family=Slabo+13px';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+/* you have to import first */
+/* before using the universal selector to clear out the margins */
+/* for whatever reason... */
+
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+.container {
+	position: relative;
+	margin-bottom: 20px;
+
+}
+
+.container img {
+	width: 100%;
+	height: 100%;
+}
+
+.container h1 {
+	/*text-align: center;*/
+	/* So text-align no longer works if I do that with a parent-realtive 
+	then child - absolute position */
+	/* tried putting it before and after "position:" but neither works */
+	/* Solutions? */
+
+	font-family: 'Slabo 13px', serif;
+	color: white;
+	font-size: 48px;
+	
+	border-bottom: 2px solid;
+	border-color: rgba(255,255,255, 0.5);
+
+	position: absolute;
+	bottom: 50%;
+	left: 30%;
+}
+
+.text_container {
+	float: left;
+	margin-top: 30px;
+}
+
+.text_container h2 {
+	margin-bottom: 30px;
+	font-family: 'Slabo 13px', serif;
+	font-size: 30px;
+	text-align: center;
+}
+
+.text_container p {
+	/*display: inline-block;*/
+	padding-left: 150px;
+	padding-right: 150px;
+	padding-bottom: 10px;
+	line-height: 30px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.nav_container {
+	margin: 0 auto;
+	width: 400px;
+}
+
+
+.nav_container nav ul {
+	list-style-type: none;
+}
+
+.nav_container li a {
+	display: block;
+	font-family: 'Open Sans', sans-serif;
+	text-decoration: none;
+	background-color: rgba(192,192,192,0.5);
+	padding: 10px 10px;
+	color: white;
+	float: left;
+}
+
+.nav_container li a:hover {
+	color: black;
+}
+
+footer {
+	clear: both;
+	padding-top: 20px;
+	padding-left: 150px; 
+}
+
+
