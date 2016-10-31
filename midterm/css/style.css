@@ -1,0 +1,452 @@
+
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/* ====== overall border for everything ====== */
+
+#overall_border{
+  margin: 0 auto;
+  width: 640px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+
+}
+
+footer a{
+  color: black;
+}
+
+.HeadlineImg {
+  display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.DivideLine {
+	display: block;
+	width: 300px;
+	margin: 50px auto;
+	text-align: center;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.DivideLine h1 {
+	font-family: "minion pro";
+}
+
+/* ====== The size of the div that contains the HOME page main text ======*/
+
+.text {
+	display: block;
+	margin: 0 auto;
+	width: 420px;
+	padding-top: 40px;
+}
+
+.text p{
+	text-align: center;
+	font-family: "minion pro";
+}
+
+/* ====== size the div that contains the hexagons ====== */
+
+.HexagonContainer {
+  margin: 0 auto;
+  width: 500px;
+  height: 156px;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  position: relative;
+}
+
+/* ======= position the hexagons =======*/
+
+#hex2{
+  position: absolute;
+  top: 172px;
+  left: 95px;
+}
+
+#hex3{
+  position: absolute;
+  top: 120px;
+  left: 190px;
+}
+
+#hex4{
+  position: absolute;
+  top: 172px;
+  left: 285px;
+}
+
+#hex5{
+  position: absolute;
+  top: 120px;
+  left: 380px;
+}
+
+.HexagonTextContainer{
+  position: relative;
+}
+
+/* ======= styling HOME page link ======= */
+
+a{
+  text-decoration:none;
+  color: white;
+}
+
+.HexagonTextContainer a:link {
+  text-decoration: none;
+  color: white;
+}
+
+.HexagonTextContainer a:visited{
+  text-decoration: none;
+  text-decoration-color: rgba(0, 0, 0, 0.2);
+}
+
+.HexagonTextContainer a:hover{
+  text-decoration:none;
+  color: white;
+}
+
+.HexagonTextContainer a:active{
+  text-decoration:none;
+  color: white;
+}
+
+/* ====== position text into the center of hex1 hex3 hex 5 ===== */
+
+.HexagonTextContainer p{
+  /*color: white;*/
+  position: absolute;
+  top: 42px;
+  left: 40px;
+}
+
+#hex3 p {
+  position: absolute;
+  top: 42px;
+  left: 30px;
+}
+#hex5 p {
+  position: absolute;
+  top: 42px;
+  left: 30px;
+}
+
+/* ======= styling footer ======= */
+#footer {
+  padding: 10px;
+}
+
+/* ======= hover effect of hex1 hex3 hex5 ======= */
+.HexagonTextContainer p:hover{
+  font-size: 30px;
+  top: 30px;
+  left: 20px;
+}
+
+#hex3 p:hover {
+  font-size: 30px;
+  top: 15px;
+  left: 30px;
+}
+
+#hex5 p:hover {
+  font-size: 25px;
+  top: 20px;
+  left: 37px;
+}
+
+/* ====== About Us Page ====== */
+
+/* ====== Styling AboutUs Page nav bar ====== */
+.aboutUsNav{
+  position: relative;
+  bottom: 35px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 640px;
+
+}
+
+ul li {
+  display: block;
+  width: 100px;
+    float: left;
+}
+
+li a{
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  padding: 8px 8px;
+  font-family: "minion pro";
+}
+
+li a:hover{
+  transition: background-color 0.5s ease;
+  background-color: white;
+  color:black;
+}
+
+.aboutUsOverall {
+  width: 640px;
+  height: 480px;
+  background-color: black;
+  position: relative;
+}
+
+.aboutUsOverall h2{
+  display: inline-block;
+  padding: 20px 230px 400px 240px;
+  font-family:'Niconne', cursive;
+  font-size: 40px;
+  color: white;
+  position: relative;
+}
+
+.aboutUsIntro{
+  position: absolute;
+  top: 120px;
+  margin:0 auto;
+}
+
+.aboutUsIntroBox {
+  width: 30%;
+/*width: 176px;*/
+  height: 296px;
+  border: 2px solid rgb(255, 255, 255);
+  margin-left: 8px;
+  margin-right: 8px;
+  float: left;
+
+}
+
+.aboutUsIntro p {
+  color: white;
+  text-align: center;
+  display: inline-block;
+  padding: 60px 10px 60px 10px;
+}
+
+
+
+/* ======= About Us Page responsive ======= */
+
+        /* Smaller Screens, Mobile  */
+    
+@media only screen and (max-width: 767px) {
+
+  .aboutUsIntro p {
+    display: block;
+    padding: 5px 10px 5px 10px;
+  }
+  
+  .aboutUsIntroBox {
+    width: 100%;
+    height: 70px;
+    border-top: 2px solid rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(255, 255, 255);
+    border-left: none;
+    border-right: none;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+}
+
+
+/* ====== Our Pick Page ====== */
+
+.dates{
+  margin-top: 50px;
+  margin-left: 45%;
+  position: relative;
+}
+
+.dates h3{
+  color: white;
+  font-family: 'minion pro';
+}
+
+#day {
+  position: absolute;
+  bottom: 40px;
+  left: 10px;
+}
+
+#month {
+  position: absolute;
+  top: 40px;
+  left: 35px;
+}
+
+.ourPickIntro{
+  width: 480px;
+  height: 300px;
+  border: 2px solid rgb(0, 0, 0);
+  margin: auto;
+  margin-top: 50px;
+  position: relative;
+}
+
+.ourPickIntro h2 {
+  font-family:'Niconne', cursive;
+  font-size: 30px;
+  padding: 20px 0px 20px 0px;
+  text-align:center;
+}
+
+.fa-quote-left{
+  position: absolute;
+  left: 30px;
+  size: 30px;
+}
+
+#ourPickIntroPara{
+  text-align: center;
+  padding: 20px 70px 0px 70px;
+}
+
+.fa-quote-right{
+  position: absolute;
+  left: 400px;
+  top: 220px;
+}
+
+
+/* ====== Find Book Page ====== */
+
+
+#findPagePara p{
+  width: 350px;
+  text-align: center;
+  margin: 20px auto;
+/*  padding-top: 80px;
+  padding-bottom: 30px;*/
+}
+
+.findPageTextBox h2{
+  font-family: 'Niconne', cursive;
+  font-size: 30px;
+  text-align: center;
+}
+
+.findPageOctaBox{
+  width: 480px;
+  height: 240px;
+  margin:0 auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.octas {
+  margin:5px 5px 5px 5px;
+  float: left;
+}
+
+/* ====== position octagon text ======= */
+
+
+.octaWithText p {
+  display: block;
+  width: 70px;
+  height: 50px;
+  color: white;
+  font-family: 'minion pro';
+  font-size: 20px;
+  text-align: center;
+}
+
+#octa1 p{
+  position: absolute;
+  top: 35px;
+  left: 25px;
+}
+
+#octa3 p{
+  position: absolute;
+  top: 35px;
+  left: 265px;
+}
+
+#octa6 p{
+  position: absolute;
+  top: 155px;
+  left: 145px;
+}
+
+#octa8 p{
+  position: absolute;
+  top: 155px;
+  left: 385px;
+}
+
+.octaWithText img:hover {
+  transition-timing-function: ease-in-out;
+  transition:0.2s;
+  opacity: 0.5;
+}
+
+.octaWithText a:hover{
+  transition-timing-function: ease-in-out;
+  transition:0.2s;
+  opacity: 0.5;
+}
+
+/* ====== Find Book Page On Hover CSS Drop Down Menu ======= */
+/*.octaWithText ul {
+  list-style: none;
+}
+
+.octaWithText ul li {
+  width: 70px;
+  height: 50px;
+}
+
+.octaWithText ul a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  font-family: 'minion pro';
+  
+}
+
+.octaWithText ul ul{
+  display: none;
+}
+
+.octaWithText ul li:hover > ul{
+  display: block;
+}
+
+.octaWithText ul ul li{
+  width: 100px;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

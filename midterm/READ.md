@@ -1,0 +1,2 @@
+This is the link to documentation: https://mengzhuchen1001.wordpress.com/2016/10/31/midterm-documentation/
+This is the link to the website (up on server): http://sites.bxmc.poly.edu/~katiechen/midterm/home.html
