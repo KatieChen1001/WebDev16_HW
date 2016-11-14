@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Paper Size Mapper</title>
+
+    <!-- Latest compiled and minified CSS for bootstrap, forms are ugly by default, this will help style them a bit better, more to come on boostrap after midterms!-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <script type="text/javascript">
+    // Making sure that after input, js will draw a rectangle the size of the paper
+        // user input
+        // store user input into to variables x and y
+        // assuming the user inputed in inches (this should be labeled out)
+        // convert x and y inch value into w & h in pixels
+        // use the variable values to draw rectangle
+    // clear button -- after drawing clear the rectange so that the user can re-input without having to refresh the page
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var btn = document.getElementById("paperBtn");
+        btn.addEventListener("click", drawPaper);
+    });
+
+    function drawPaper(){
+
+        var w = document.getElementById("Width").value;
+        var h = document.getElementById("Height").value;
+
+        w = w*96;
+        h = h*96;
+
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.rect(20, 20, w, h);
+        ctx.stroke();
+
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var clearBtn = document.getElementById("clearBtn");
+        clearBtn.addEventListener("click", clearPaper);
+    });
+
+    function clearPaper(){
+        document.getElementById("Width").value = '';
+        document.getElementById("Height").value = '';
+        window.location.reload();
+    }
+
+    </script>
+</head>
+
+<body>
+
+
+    <div class="container" style="margin-top: 200px">
+        <div class=".col-md-6 .col-md-offset-3">
+            <div class="form-horizontal">
+                <!-- User input of height and width -->
+                <div class="form-group">
+                    <label for="bill" class="col-sm-2 control-label">Width (inch) :</label>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" name="Width" id="Width" step="10">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                <label for="bill" class="col-sm-2 control-label">Height (inch) :</label>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" name="Height" id="Height" step="10">
+                        
+                    </div>
+                </div>
+                <!-- Buttons for initiating drawing and clear drawings -->
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default" id="paperBtn">Draw paper size</button>
+                        <button type="submit" class="btn btn-default" id="clearBtn">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <canvas id="myCanvas" width="1000" height="2000" style="border:1px solid #d3d3d3;"></canvas>
+
+  <!--       <div class="well" id="paper-box">This is the output</div> -->
+
+    </div>
+
+</body>
+</html>
