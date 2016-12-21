@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FlexMix</title>
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <!-- Now load MixItUp (wont work if we dont load JQ first) -->
+    <script type="text/javascript" src="../js/jquery.mixitup.min.js"></script>
+
+    <script type="text/javascript">
+    // This is the shorthand version of jQuery's document ready function
+    $(function() {
+        
+        $("#reset").click(function(event){
+            $("#Container").mixItUp('filter', 'all');
+        });
+
+        // Instantiate MixItUpHere
+        $("#Container").mixItUp({
+            load:{
+
+            	// toggleDefault:'all'
+                filter:'all' //this is your default filter, try changing it to all
+            },
+            controls:{
+                toggleFilterButtons:true, //allows for more than 1 filter button to be selected at a time. try changing to false
+                toggleLogic:'and' // when more than 1 button is selected, show only the items that have BOTH filters, try changind this to OR
+            },
+            animation:{
+                enable:true,
+                effects:'fade scale stagger rotateX',
+                duration: 600,
+                easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+            }
+        });
+    });
+    </script>
+    <style type="text/css">
+    *{
+    	padding: 0;
+    	margin: 0;
+    }
+
+    html{
+    	background-color: #34495e;
+    }
+
+    label{
+    	text-align: center;
+    }
+
+    	.flex-container{
+            margin: 0 auto;
+    		width: 500px;
+    		height: 30px;
+    		display: flex;
+    		justify-content: space-around;
+    		border-top: 1px solid white;
+    		border-bottom: 1px solid white;
+            padding: 1%;
+    	}
+
+    	.flex-item{
+    		display: inline-block;
+    		font-family: 'minion pro', 'Times new roman';
+    		font-size: 1em;
+    		color: white;
+    		background-color: #34495e;
+    		border: none;
+            text-align: center;
+    	}
+
+        /* Controls */
+
+
+    label{
+        font-weight: 300;
+        margin: 0 20px 0 0;
+    }
+
+    button{
+        display: inline-block;
+        padding: 5px 10px;
+        background: #666;
+        border: 0;
+        color: #eee;
+        font-size: 16px;
+        font-weight: 100;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:focus{
+        outline: 0 none;
+    }
+
+    button.active, button:hover{
+        background: #999;
+    }
+
+    /* Mix Styles */
+    
+    .container {
+        padding: 2%;
+        text-align: justify;
+        font-size: 0.1px;
+        background: #DDD;
+        min-height: 200px;
+        position: relative;
+    }
+    /* This needed for spacing between mix elements*/
+    
+    .container:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+    }
+
+    /* Mobile First Styling this will apply unless a screen of a certain min width is detected */
+    .container .mix, 
+    .container .gap{
+        display: inline-block;
+        width: 100%;
+    }
+
+    .container .mix{
+        text-align: left;
+        background: #AAA;
+        margin-bottom: 2%;
+        border-radius: 8px;
+        display: none; 
+    }
+
+    .container .mix:after{
+        /* display data attributes or classes using css */
+        content: attr(class);
+        color: white;
+        font-size: 16px;
+        display: inline-block;
+        vertical-align: top;
+        padding: 4% 6%;
+        font-weight: 300;
+    }
+
+    /* this is optional but lets use another psuedo class selector to add more padding */
+
+    .container .mix:before{
+        content: '';
+        display: inline-block;
+        padding-top: 60%;
+    }
+
+
+    /* Larger Phones and Tablets (2 items per row) */
+        @media all and (min-width:768px){
+        .container .mix, .container .gap{
+            width: 48%;
+        }
+    }
+
+    /* Desktop (4 items per row) */
+        @media all and (min-width:1024px){
+        .container .mix, .container .gap{
+            width: 24%;
+        }
+    }
+
+    </style>
+</head>
+<body>
+<!-- Build our buttons and controls here -->
+    <div class="controls flex-container">
+        <!-- Filter -->
+        <!-- <label class="flex-item">Filter:</label> -->
+        <button class="filter fl
+        ex-item" data-filter="all">All</button>
+        <button class="filter flex-item" data-filter=".posters">Posters</button>
+        <button class="filter flex-item" data-filter=".designs">Designs</button>
+        <button class="filter flex-item" data-filter=".artwork">Artwork</button>
+        
+        <!-- <button id="reset">None</button> -->
+    </div>
+    <!-- This container holds all elements we wish to filter or sort -->
+    <div id="Container" class="container">
+        <!-- Fail message for when your selected filters return nothing -->
+        <!-- <div class="fail-message"><span>No items were found matching the current filters.</span></div> -->
+        <!-- content to filter and sort -->
+        <div class="mix posters" data-myorder="1">
+            <img src="img/posters/1.JPG">
+        </div>
+        <div class="mix designs" data-myorder="2">
+            <img src="img/posters/2.jpg">
+        </div>
+        <div class="mix posters" data-myorder="1">
+            <img src="img/posters/1.jpg">
+        </div>
+        <div class="mix designs" data-myorder="2">
+            <img src="img/posters/2.jpg">
+        </div>
+
+        <div class="gap"></div>
+        <div class="gap"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<style type="text/css">
+		body{
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+
+
+ <!-- Load jQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+  //   	document.addEventListener("keydown", function(event) {
+  // 			console.log(event.which)
+		// });
+
+    // 	  $('body').keypress(function(e){
+    // 		if(e.keycode == 13){
+    // 			console.log(e.keycode);
+    //   			$('body').css({'background-color': 'white'});
+    // 		}
+  		// });
+
+
+  		$(document).ready(function () {
+
+    		$('body').on('keydown',function(e){
+      			if(e.which==13){
+          			$(this).css({background: 'red'});  
+      			}
+    		});
+
+		});
+
+    </script>
+</body>
+</html>

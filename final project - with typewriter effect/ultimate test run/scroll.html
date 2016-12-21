@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>scroll</title>
+
+	<style type="text/css">
+	html{
+		background-color: #34495e;
+		font-family: 'minion pro';
+		color: white;
+	}
+
+	 h2 {
+	font-size: 5em;
+	font-weight: 300;
+	line-height: 1;
+}
+
+ p {
+	font-size: 2em;
+	font-weight: 300;
+}
+
+.scroll-box{
+	margin: 80px 120px;
+		display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.scroll-box-text{
+	display: flex;
+	flex-direction: column;
+}
+
+.scroll-box-img{
+	display: flex;
+	flex-direction: column;
+}
+
+.for-spacing{
+	width: 100%;
+	height: 50px;
+}
+
+.text-right{
+	text-align: right;
+}
+
+
+	</style>
+</head>
+<body>
+<section>
+	<div class="scroll-box section1">
+
+		<div class="scroll-box-text text-left" id="one-left">
+			<h2>Lemon drops</h2>
+			<p>Fruitcake toffee jujubes. </p>
+		</div>
+		<div class="scroll-box-img" id="one-right">
+			<img src="http://placekitten.com/g/400/400" alt="img01">
+		</div>
+
+	</div>
+</section>
+
+<div class="for-spacing"></div>
+
+<section>
+	<div class="scroll-box section2">
+
+		<div class="scroll-box-img" id="two-left">
+			<img src="http://placekitten.com/g/400/400" alt="img01">
+		</div>
+		<div class="scroll-box-text text-right" id="two-right">
+			<h2>Lemon XXXXX</h2>
+			<p>This is just a bunch of sjdaljrqworqlbnca, sfalksdjhalnr,asnbcalskda alsdhlaksnd </p>
+		</div>
+
+	</div>
+</section>
+
+<!-- <div class="for-spacing"></div> -->
+
+<section>
+	<div class="scroll-box section3">
+
+		
+		<div class="scroll-box-text text-left" id="three-right">
+			<h2>Lemon XXXXX</h2>
+			<p>This is just a bunch of sjdaljrqworqlbnca, sfalksdjhalnr,asnbcalskda alsdhlaksnd </p>
+		</div>
+		<div class="scroll-box-img" id="three-left">
+			<img src="http://placekitten.com/g/400/400" alt="img01">
+		</div>
+
+	</div>
+</section>
+
+<div class="for-spacing"></div>
+
+<section>
+	<div class="scroll-box section4">
+
+		<div class="scroll-box-img" id="four-right">
+			<img src="http://placekitten.com/g/400/400" alt="img01">
+		</div>
+		<div class="scroll-box-text text-right" id="four-left">
+			<h2>Lemon XXXXX</h2>
+			<p>This is just a bunch of sjdaljrqworqlbnca, sfalksdjhalnr,asnbcalskda alsdhlaksnd </p>
+		</div>
+		
+
+	</div>
+</section>
+
+
+<!-- Greensock -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<!-- Load ScrollMagic CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+
+<script type="text/javascript">
+
+    var $1lf = $('#one-left'),
+        $1rt = $('#one-right'),
+        $2lf = $('#two-left'),
+        $2rt = $('#two-right'),
+        $3lf = $('#three-left'),
+        $3rt = $('#three-right'),
+        $4lf = $('#four-left'),
+        $4rt = $('#four-right');
+
+	    // initiate scrollMagic
+
+	 	var ctrl = new ScrollMagic.Controller({
+		    globalSceneOptions: {
+		        triggerHook: 'onEnter'
+	    	}	
+		});
+
+		var tlSec1 = new TimelineMax();
+	 	tlSec1.from($1lf, 2, {x:-500, opacity:0})
+	    .from($1rt, 1, {x:1780, opacity:0})
+
+	 	var scene1 = new ScrollMagic.Scene({triggerElement: ".section1", triggerHook: 'onEnter', triggerOffset: 400, duration: 300})
+    	.addTo(ctrl)
+    	.setTween(tlSec1);
+		
+		var tlSec2 = new TimelineMax();
+	 	tlSec2.from($2lf, 2, {x:-500, opacity:0})
+	    .from($2rt, 1, {x:1780, opacity:0},'0')
+
+	 	var scene2 = new ScrollMagic.Scene({triggerElement: ".section2", triggerHook: 'onEnter', duration: 500})
+    	.addTo(ctrl)
+    	.setTween(tlSec2);
+
+    	var tlSec3 = new TimelineMax();
+	 	tlSec3.from($3lf, 2, {x:-500, opacity:0})
+	    .from($3rt, 1, {x:1780, opacity:0},'0')
+
+	 	var scene3 = new ScrollMagic.Scene({triggerElement: ".section3", triggerHook: 'onEnter', duration: 500})
+    	.addTo(ctrl)
+    	.setTween(tlSec3);
+
+    	var tlSec4 = new TimelineMax();
+	 	tlSec4.from($4lf, 2, {x:-500, opacity:0})
+	    .from($4rt, 1, {x:1780, opacity:0},'0')
+
+	 	var scene4 = new ScrollMagic.Scene({triggerElement: ".section4", triggerHook: 'onEnter', duration: 500})
+    	.addTo(ctrl)
+    	.setTween(tlSec4);
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

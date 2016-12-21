@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Count-test2</title>
+	<style type="text/css">
+		body {
+  background-color: #F46A6A;
+  color:#fff;
+  max-width:800px;
+  margin: 100px auto 0;
+  text-align: center;
+  display: table;
+}
+
+.counter {
+  display: table-cell;
+  margin:1.5%;
+  font-size:50px;
+  background-color: #FF6F6F;
+  width:200px;
+  border-radius: 50%;
+  height:200px;
+  vertical-align: middle;
+}
+	</style>
+</head>
+<body>
+<div class="counter" data-count="2016">1996</div>
+<div class="counter" data-count="12">10</div>
+<div class="counter" data-count="14">01</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+	$('.counter').each(function() {
+		var $this = $(this),
+		countTo = $this.attr('data-count');
+
+	  	$({ countNum: $this.text()}).animate(
+	  	{
+	    	countNum: countTo
+	  	}, 
+
+	  	{
+		    duration: 2000,
+		    easing:'linear',
+		    step: function() {
+		      $this.text(Math.floor(this.countNum));
+	    	}, 
+
+	    	complete: function() {
+	      		$this.text(this.countNum);
+	    	}
+  		});  
+	});
+</script>
+</body>
+</html>

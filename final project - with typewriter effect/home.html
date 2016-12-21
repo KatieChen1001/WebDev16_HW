@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Katie Homes</title>
+<!-- 	<link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/grid.css"> -->
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+	<link rel="stylesheet" type="text/css" href="css/homeHidden.css">
+
+<style type="text/css">
+
+    
+    
+    
+
+    </style>
+
+</head>
+
+<body>
+
+	<div class="container">
+
+		<div class="homepage-wrapper design" id="design">
+			<img class="designImg" src="img/design.svg">
+			<div class="hidden hidden-text" id="designText"> A collection of creative poster designs</div>
+			<div class="hidden flex-container">
+				<img class="flex-item hidden" src="img/design/1.jpg">
+				<img class="flex-item hidden" src="img/design/2.jpg">
+				<img class="flex-item hidden" src="img/design/3.jpg">
+				<img class="flex-item hidden" src="img/design/4.jpg">
+				<img class="flex-item hidden" src="img/design/5.jpg">
+				<img class="flex-item hidden" src="img/design/6.jpg">
+				<img class="flex-item hidden" src="img/design/7.jpg">
+				<img class="flex-item hidden" src="img/design/8.jpg">
+			</div>
+			
+			<a href="file:///Users/katiechen/Desktop/Intro%20to%20Web%20Development/final%20project%20-%20test%202/home.html" class="hidden back-arrow back-design" title="back to home">&rarr;</a>
+		</div>
+
+		<div class="homepage-wrapper photos" id="photos">
+			<img class="photosImg" src="img/photos.svg">
+			<h2 class="hidden hidden-text" id="photosText">This is some text for photo</h2>
+			<div class="hidden grid_4">
+	            <div class="view view-portfolio">
+	                <img src="img/design/1.jpg" alt=""/>
+	                <div class="mask">
+	                    <h2>Portfolio Item</h2>
+	                    <p>At vero eos et accusamus et iusto odio dignissimos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+	                    <a href="portfolio_item.html" class="info">Read More</a>
+	                </div>
+	            </div>
+        	</div>
+			<a href="file:///Users/katiechen/Desktop/Intro%20to%20Web%20Development/final%20project%20-%20test%202/home.html" class="hidden back-arrow back-photos" title="back to home">&rarr;</a>
+		</div>
+
+		<div class="homepage-wrapper" id="blog">
+			<img src="img/blog.svg">
+		</div>
+
+		<div class="homepage-wrapper" id="contact">
+			<img src="img/contact.svg" alt="The word 'contact' with flat icon of a phone" id="imgBtn">
+
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+
+				<!-- Modal content -->
+				<div class=" modal-div modal-content">
+
+				    <div class=" modal-div modal-header">
+				      <span class="close">&times;</span>
+				      <h2>Hi, nice to meet you!</h2>
+				    </div>
+
+				    <div class="modal-div modal-body">
+					    <form action="action_page.php">
+					    	<label for="name">Name</label>
+					    	<input type="text" name="name" id="name">
+
+					    	<label for="email">Email</label>
+					    	<input type="text" name="email" id="email">
+
+					    	<label for="message">Message</label>
+					    	<input type="text" name="message" id="message">
+
+					    	<input type="submit" value="Submit" id="submit">
+					    	<!-- if you click on submit, the form-data will be sent to a page called "action_[age.php" -->
+					    	<!-- But that page is not working as of now -->
+					    </form>
+				    </div>
+
+				    <div class="modal-div modal-footer">
+				      <h3>Thanks for contacting me! I'll get back to you within 24h!</h3>
+				    </div>
+
+	  			</div>
+
+			</div>
+			<!-- End of Modal -->
+		</div>
+		<!-- End of Contact homepage-wrapper -->
+
+	</div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+	<script type="text/javascript">
+	// div height and width - repsonsive
+	$(function(){
+	 	$('.homepage-wrapper').css({ height: $(window).innerHeight()});
+	  	$(window).resize(function(){
+	    	$('.homepage-wrapper').css({ height: $(window).innerHeight()});
+	  	});
+	});
+
+	//animate ease-in the divs 
+	$(document).ready(function(){
+
+		var $design= $("#design"),
+			$photos = $("#photos"), 
+			$blog = $("#blog"),
+			$contact = $("#contact");
+
+		var tlHomeDiv = new TimelineLite();
+
+		// (the element you are tweening | how long you want it to take | XXX | position parameter, pass in a string "-=0.25" meaning this animation will start .25s before the last animation ends
+		tlHomeDiv.from($design, 1, {x:-500, opacity:0})
+		.from($photos, 1, {y:-500, opacity:0})
+		.from($blog, 0.8, {y:1000, opacity:0})
+		.from($contact, 1.2, {x:1780, opacity:0}); //1280 + 500
+	});
+
+
+	// ============ on hover change opacity to indicate clickable ============ // 
+	$(".homepage-wrapper").mouseenter(function(event){
+		$(this).css({opacity:0.5, cursor: "pointer"})
+	}).mouseleave(function(event){
+		$(this).css({opacity:1})
+	});
+
+
+
+	// ============= on click show hidden text =========== //
+	// ============= design =========== //
+	$('#design').click(function(event){
+
+		// When design is clicked, remove the divs that contain photo, blog and contact
+		$('#photos,#blog,#contact').remove();
+		// do not display the design img
+		$('.designImg').css({display:"none"});
+		// change the bg color for the design div
+		TweenMax.to(".design", 2, {width:'100%', height:'100%', backgroundColor:"#34495e", opacity:"1", cursor:"default"});
+		// show hidden content
+		$("#designText").removeClass("hidden");
+		$(".back-design").removeClass("hidden");
+		$(".flex-item").removeClass("hidden");
+		// disable on hover change opacity
+		$(this).unbind('mouseenter mouseleave');
+	});
+	// ============= photo =========== //
+	$('#photos').click(function(event){
+
+		// When design is clicked, remove the divs that contain photo, blog and contact
+		$('#design,#blog,#contact').remove();
+		// do not display the design img
+		$('.photosImg').css({display:"none"});
+		// change the bg color for the design div
+		TweenMax.to(".photos", 2, {width:'100%', height:'100%',backgroundColor:"#34495e", opacity:"1", cursor:"default"});
+		// show hidden content
+		$("#photosText").removeClass("hidden");
+		$(".back-photos").removeClass("hidden");
+		$(".flex-item").removeClass("hidden");
+		// disable on hover change opacity
+		$(this).unbind('mouseenter mouseleave');
+	});	
+
+
+
+	// ================= Open Modal! ================== //
+	// Get the modal
+	var modal = document.getElementById('myModal');
+	// Get the button that opens the modal
+	var btn = document.getElementById("imgBtn");
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+	// When the user clicks the button, open the modal 
+	btn.onclick = function() {
+	    modal.style.display = "block";
+	    // ===== disable on hover change opacity when modal is open ===== // 
+	    $('.homepage-wrapper').unbind('mouseenter mouseleave');
+	}
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	    modal.style.display = "none";
+	    $(".homepage-wrapper").mouseenter(function(event){
+			$(this).css({opacity:0.5, cursor: "pointer"})
+		}).mouseleave(function(event){
+			$(this).css({opacity:1})
+		});
+	}
+	// When the user clicks anywhere outside of the modal, close it
+	// ====== Bug: if I click on the div that has hidden content, then it opens up the hidden content instead of closing the modal ====== //
+	window.onclick = function(event) {
+	    if (event.target == modal) {
+	        modal.style.display = "none";
+		    $(".homepage-wrapper").mouseenter(function(event){
+				$(this).css({opacity:0.5, cursor: "pointer"})
+			}).mouseleave(function(event){
+				$(this).css({opacity:1})
+			});
+	    }
+	}
+
+
+
+
+	</script>
+	
+</body>
+</html>

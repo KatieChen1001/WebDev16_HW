@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Katie Homes</title>
+	<link rel="stylesheet" type="text/css" href="css/loading.css">
+</head>
+<body>
+
+<pre class= "typewriter-wrapper" id="typewriter">
+Last login: Tue Oct 1st 1996 00:41:50 Born
+172-16-127-210:~katiechen$ sudo defaults write
+Library/Preferences/com.apple.loginwindow
+LoginwindowText “Welcome to Katie’s personal website!”
+Hit Enter to Start</pre>
+<!-- 172-16-127-210:~katiechen$ ls skillsets
+Animation.ae                        Photography.ps
+Front-end-web-design.css.html.js    Graphic Design.ai
+Writing.docx
+172-16-127-210:~katiechen$ history
+Click to download resume
+172-16-127-210:~katiechen$ ipconfig getifaddr en0
+Contact me at mzc219@nyu.edu -->
+
+<div class="hidden counter-wrapper">
+  <div class="counter" data-count="2016">1996</div>
+  <div class="counter" data-count="12">10</div>
+  <div class="counter" data-count="14">01</div>
+</div>
+
+    <!-- Link to GSAP HERE -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+
+    <!-- Load jQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <!-- load local main js script -->
+    <!-- <script type="text/javascript" src="js/main.js"></script> -->
+
+    <script type="text/javascript">
+
+    // ================== loading typewritter ================ //
+    function setupTypewriter(t) {
+        
+        var HTML = t.innerHTML;
+        t.innerHTML = "";
+
+        var cursorPosition = 0,
+        tag = "",
+        writingTag = false,
+        tagOpen = false,
+        typeSpeed = 100,
+        tempTypeSpeed = 0;
+
+
+        var type = function() {
+           if (writingTag === true) {
+               tag += HTML[cursorPosition];
+           }
+
+           if (HTML[cursorPosition] === "<") {
+               tempTypeSpeed = 0;
+               if (tagOpen) {
+                   tagOpen = false;
+                   writingTag = true;
+               } else {
+                   tag = "";
+                   tagOpen = true;
+                   writingTag = true;
+                   tag += HTML[cursorPosition];
+               }
+           }
+
+           if (!writingTag && tagOpen) {
+               tag.innerHTML += HTML[cursorPosition];
+           }
+
+           if (!writingTag && !tagOpen) {
+               if (HTML[cursorPosition] === " ") {
+                   tempTypeSpeed = 0;
+               }
+               else {
+                   tempTypeSpeed = (Math.random() * typeSpeed) + 50;
+               }
+               t.innerHTML += HTML[cursorPosition];
+           }
+
+           if (writingTag === true && HTML[cursorPosition] === ">") {
+               tempTypeSpeed = (Math.random() * typeSpeed) + 50;
+               writingTag = false;
+
+               if (tagOpen) {
+                   var newSpan = document.createElement("span");
+                   t.appendChild(newSpan);
+                   newSpan.innerHTML = tag;
+                   tag = newSpan.firstChild;
+               }
+           }
+
+           cursorPosition += 1;
+           if (cursorPosition <= HTML.length - 1) {
+               setTimeout(type, tempTypeSpeed);
+               
+           }
+
+       };
+
+       return {
+           type: type
+       };
+   }
+
+
+  var typer = document.getElementById('typewriter');
+
+  typewriter = setupTypewriter(typer);
+
+  typewriter.type();
+
+
+
+  // =============== on "enter" keypressed trigger countUp() ============== //
+
+  $(document).ready(function () {
+
+    $('body').on('keydown',function(e){
+        if(e.which==13){
+
+            $('#typewriter').css({display:'none'})
+
+            // removeClass to show counter
+            $('div').removeClass('hidden')
+
+            // counter function
+            $('.counter').each(function() {
+              var $this = $(this),
+              countTo = $this.attr('data-count');
+
+                $({ countNum: $this.text()}).animate(
+                {
+                  countNum: countTo
+                }, 
+
+                {
+                  duration: 2000,
+                  easing:'linear',
+                  step: function() {
+                    $this.text(Math.floor(this.countNum));
+                  }, 
+
+                  complete: function() {
+                      $this.text(this.countNum);
+                  }
+                });  
+
+              // ===== background light up as couter counts up ===== //
+              $('body').css({backgroundColor: 'white', transition: 'background-color 3s ease'});
+            })
+
+            // load the home page
+            $('body').on('keydown',function(e){
+              if(e.which==13){
+                window.location.href = "home.html"
+              }
+            });
+      }
+    });
+  });
+
+
+
+
+</script>
+
+</body>
+</html>

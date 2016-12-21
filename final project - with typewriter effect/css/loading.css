@@ -1,0 +1,110 @@
+
+  *{
+  	margin:0;
+  	padding:0;
+  }
+
+  @font-face{
+    font-family: "Menlo";
+    src: url('../fonts/Menlo.ttc');
+/*    font-family: "digital";
+    src: url('fonts/digital-7.ttf');*/
+  }
+
+  body {
+  	background-color: black;
+    margin: 100px auto 0;
+    text-align: center;
+    display: table;
+  }
+
+  pre{
+     margin: 0 auto;
+     padding: 0;
+     white-space: pre;
+  }
+
+  .typewriter-wrapper{
+    height: 250px;
+    width: 400px;
+    position: relative;
+    top: 20%;
+  }
+
+  #typewriter{
+    font-size: 1em;
+    font-family: "Courier New", "courier";
+    color: #77fd04;
+  }
+
+  pre::after{
+    content: "|";
+    animation: blink 500ms linear infinite alternate;
+  }
+
+  @-webkit-keyframes blink{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+  }
+
+  @-moz-keyframes blink{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+  }
+
+  @keyframes blink{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+  }
+
+  #enter{
+    font-family: "Menlo";
+    color: #77fd04;
+    font-size: 2em;
+  }
+
+  /* ======= Styling Counter ====== */
+
+  .counter-wrapper{
+    display: inline-block;
+    margin: 0 auto;
+  }
+
+  .counter{
+    font-family: "courier";
+    font-size: 3em;
+    color: #77fd04;
+    display: table-cell;
+    margin:1.5%;
+    width:200px;
+    border-radius: 50%;
+    border: 2px solid #77fd04;
+    height:200px;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+    .hidden {
+    display:none;
+  }
+
+  /* ========= Media query ======== */
+  /* ====== Adjust the position of loading page text when displayed on different screen ====== */
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+  }
+
+
+  /* ====== This queries the device height and width rather than the browser window. 
+  Notice how this only works when we use developer tools to fake a tablet's specs. ====== */
+    
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+
+  }
+
+  /* ====== Smaller Screens, Mobile ====== */
+    
+  @media only screen and (max-width: 767px) {
+        
+  }

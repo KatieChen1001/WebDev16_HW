@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Modal my Code</title>
+
+	<style type="text/css">
+		.modal{
+			display: none;
+			position: fixed;
+			z-index: 1;
+			left: 0;
+			top:0;
+			width: 100%;
+			height: 100%;
+			/* enable scroll if needed */
+			overflow:auto; 
+			background-color: rgb(0, 0, 0, 0.4);
+		}
+
+		.modal-content{
+			background-color: #fefefe;
+			/* 15% from the top and centered */
+			margin: 15% auto; 
+			padding: 20px;
+			border: 1px solid #888;
+			width: 80%;
+		}
+
+		/* The Close Button */
+		.close{
+			color: #aaa;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus{
+			color: black;
+			text-decoration: none;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+<!-- Trigger modal -->
+<button id="myBtn">Open Modal</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal">
+	
+	<!-- Modal content -->
+	<div class="modal-content">
+		<span class="close">&times;</span>
+		<p>XXXXXXXXXX</p>
+	</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+	var modal = $('#myModal');
+	var btn = $('#myBtn');
+	var span = $('.close')[0];
+
+	btn.onclick = function(){
+		modal.style.display = "block";
+	}
+
+	span.onclick = function(){
+		modal.style.display = "none";
+	}
+
+	// when user clicks on anywhere outside of the modal, close it 
+	window.onclick = function(event){
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
+
+</script>
+</body>
+</html>
