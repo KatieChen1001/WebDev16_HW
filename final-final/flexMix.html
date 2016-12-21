@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FlexMix</title>
+    <!-- ====== page stylesheet ======= -->
+    <link rel="stylesheet" type="text/css" href="css/flexMix.css">
+    <!-- ====== Fancybox stylesheet ======= -->
+    <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css">
+    <!-- ====== JQuery ======= -->
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <!-- ====== MixItUp ======= -->
+    <script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+
+    <!-- ======= page transition plugin ======== -->
+    <!-- animsition.css -->
+    <link rel="stylesheet" href="css/animsition.css">
+    <!-- animsition.js -->
+    <script src="js/animsition.js"></script>
+
+    <!-- ======================== Initiate MixItUp ======================= -->
+    <script type="text/javascript">
+    $(function() {
+        $("#reset").click(function(event){
+            $("#Container").mixItUp('filter', 'all'); //default display all content on the page 
+        });
+
+        // Initiate MixItUp 
+        $("#Container").mixItUp({
+            load:{
+                filter:'all'
+            },
+            controls:{
+                toggleFilterButtons:false, // only one filter button to be active at one time 
+            },
+            animation:{
+                enable:true,
+                effects:'fade scale stagger rotateX',
+                duration: 600,
+                easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+            }
+        });
+    });
+    </script>
+</head>
+
+
+
+<body>
+<!-- ======================= Filter Controls ===================== -->
+    <div class="controls flex-container">
+        <button class="filter flex-item" data-filter="all">All</button>
+        <button class="filter flex-item" data-filter=".posters">Posters</button>
+        <button class="filter flex-item" data-filter=".designs">Designs</button>
+        <button class="filter flex-item" data-filter=".photos">Photography</button>
+    </div>
+
+
+    <!-- ==================== Content to filter ====================== -->
+    <div id="Container" class="container">
+
+        <!-- ===================== POSTERS ====================== -->
+        <div class="mix posters" data-myorder="1">
+            <img class="mix-img" src="img/posters/1.jpg">
+        </div>
+        <div class="mix posters " data-myorder="2">
+            <img class="mix-img" src="img/posters/2.jpg">
+        </div>
+        <div class="mix posters " data-myorder="1">
+            <img class="mix-img" src="img/posters/3.jpg">
+        </div>
+        <div class="mix posters" data-myorder="2">
+            <img class="mix-img" src="img/posters/4.jpg" width="306px" height="428px">
+        </div>
+        <div class="mix posters" data-myorder="2">
+            <img class="mix-img" src="img/posters/5.jpg" width="306px" height="428px">
+        </div>
+        <div class="mix posters" data-myorder="2">
+            <img class="mix-img" src="img/posters/6.jpg" width="306px" height="428px">
+        </div>
+        <div class="mix posters" data-myorder="2">
+            <img class="mix-img" src="img/posters/7.jpg" width="306px" height="428px">
+        </div>
+        <div class="mix posters" data-myorder="2">
+            <img class="mix-img" src="img/posters/8.jpg" width="306px" height="428px">
+        </div>
+
+        <!-- ===================== DESIGNS ====================== -->
+
+        <div class="mix designs" data-myorder="2">
+            <img class="mix-img" src="img/designs/01.jpg" width="306px" height="428px">
+        </div>
+        <div class="mix designs" data-myorder="2">
+            <img class="mix-img" src="img/designs/02.jpg" width="306px" height="428px">
+        </div>
+        <div class="mix designs" data-myorder="2">
+            <img class="mix-img" src="img/designs/03.jpg" width="306px" height="428px">
+        </div>
+        <div class="mix designs" data-myorder="2">
+            <img class="mix-img" src="img/designs/04.jpg" width="306px" height="428px">
+        </div>
+        <div class="mix designs" data-myorder="2">
+            <img class="mix-img" src="img/designs/05.jpg" width="306px" height="428px">
+        </div>
+        <div class="mix designs" data-myorder="2">
+            <img class="mix-img" src="img/designs/06.jpg" width="306px" height="428px">
+        </div>
+
+        <!-- ===================== PHOTOS ====================== -->
+
+        <div class="mix photos" data-myorder="2">
+            <a class="fancybox-effects-c" title="MoMA PS1, Nov 11th, 2016" href="img/photos/IMG_0314.jpg">
+            <img class="mix-img" src="img/photos/IMG_0314.jpg" width="306px" height="428px"></a>
+        </div>
+         <div class="mix photos" data-myorder="2">
+            <a class="fancybox-effects-c" title="Bronx Botanic Garden, Nov 13th, 2016" href="img/photos/IMG_0459.jpg">
+            <img class="mix-img" src="img/photos/IMG_0459.jpg" width="306px" height="428px"></a>
+        </div>
+        <div class="mix photos" data-myorder="2">
+            <a class="fancybox-effects-c" title="MoMA PS1, Nov 11th, 2016" href="img/photos/IMG_0315.jpg">
+            <img class="mix-img" src="img/photos/IMG_0315.jpg" width="306px" height="428px"></a>
+        </div>
+         <div class="mix photos" data-myorder="2">
+            <a class="fancybox-effects-c" title="Bronx Botanic Garden, Nov 13th, 2016" href="img/photos/IMG_0463.jpg">
+            <img class="mix-img" src="img/photos/IMG_0463.jpg" width="306px" height="428px"></a>
+        </div>
+
+        <div class="gap"></div>
+        <div class="gap"></div>
+
+
+    </div>
+
+    <!-- Animate page trasition "back-arrow" -->
+    <div class="animsition-overlay" data-animsition-overlay="true">
+        <a href="home.html" class="back-arrow back-left animsition-link" data-animsition-out-class="overlay-slide-out-right" data-animsition-out-duration="500">&rarr;</a>
+    </div>
+
+
+    <!-- ========================== Link FancyBox =========================== -->
+    <script type="text/javascript" src="js/jquery.fancybox.js"></script>
+
+
+
+    <!-- ================================= JS Code ================================ -->
+    
+    <script type="text/javascript">
+
+    $(document).ready(function(){
+
+    // ============== Initiate Animsition page transition plugin =============== // 
+        $(".animsition-overlay").animsition({
+            inClass:'overlay-slide-in-right',
+            outClass:'overlay-slide-out-left',
+            inDuration: 1500,
+            outDuration: 800,
+            linkElement: '.animsition-link',
+            loading: true,
+            loadingParentElement: 'body', //animsition wrapper element
+            loadingClass: 'animsition-loading',
+            loadingInner: '', // e.g '<img src="loading.svg" />'
+            timeout: false,
+            timeoutCountdown: 5000,
+            onLoadEvent: true,
+            browser: [ 'animation-duration', '-webkit-animation-duration'],
+            // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+            // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+            overlay : true,
+            overlayClass : 'animsition-overlay-slide',
+            overlayParentElement : 'body',
+            transition: function(url){ window.location.href = url; }
+        });
+
+        // ============== Initiate fancybox ============ //
+
+        $('.fancybox-effects-c').fancybox({
+            wrapCSS    : 'fancybox-custom',
+                closeClick : true,
+
+                openEffect : 'none',
+
+                helpers : {
+                    title : {
+                        type : 'inside'
+                    },
+                    overlay : {
+                        css : {
+                            'background' : 'rgba(238,238,238,0.85)'
+                        }
+                    }
+                }
+        })
+
+
+    });
+    </script>
+
+
+</body>
+</html>

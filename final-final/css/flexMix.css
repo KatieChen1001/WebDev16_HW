@@ -1,0 +1,131 @@
+html {
+  background-color: #34495e; }
+
+.flex-container {
+  margin: 0 auto;
+  width: 500px;
+  height: 30px;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  padding: 1%;
+  margin-top: 4%; }
+
+.flex-item {
+  display: inline-block;
+  font-family: 'minion pro', 'Times new roman';
+  font-size: 1em;
+  color: white;
+  background-color: #34495e;
+  border: none;
+  text-align: center; 
+}
+
+button {
+  display: inline-block;
+  padding: 5px 10px;
+  background: #666;
+  border: 0;
+  color: #eee;
+  font-size: 16px;
+  font-weight: 100;
+  border-radius: 4px;
+  cursor: pointer; }
+
+button:focus {
+  outline: 0 none; }
+
+button.active, button:hover {
+  background: #999; }
+
+/* Mix Styles */
+.container {
+  padding: 4% 2% 2% 2%;
+  /* creates some space between fulter bar and content */
+  text-align: justify;
+  /*        font-size: 0.1px;*/
+  /*        background: #DDD;*/
+  min-height: 200px;
+  position: relative; }
+
+/* This needed for spacing between mix elements*/
+/* keeping this for now, but dont now how this works */
+.container:after {
+  content: '';
+  display: inline-block;
+  width: 100%; }
+
+/* Mobile First Styling this will apply unless a screen of a certain min width is detected */
+.container .mix,
+.container .gap {
+  display: inline-block;
+  width: 100%; }
+
+.container .mix {
+  text-align: center;
+  /* this actually centered the images ---- it's a miracle */
+  /*        background: #AAA;*/
+  margin-bottom: 2%;
+  border-radius: 8px;
+  display: none; }
+
+.container .mix:after {
+  /* display data attributes or classes using css */
+  /*content: attr(class);*/
+  color: white;
+  font-size: 16px;
+  display: inline-block;
+  vertical-align: top;
+  padding: 4% 6%;
+  font-weight: 300; }
+
+/* this is optional but lets use another psuedo class selector to add more padding */
+.container .mix:before {
+  content: '';
+  display: inline-block;
+  padding-top: 60%; }
+
+img.mix-img {
+  margin: 0 auto; }
+
+
+.back-arrow {
+  font-family: 'minion pro';
+  font-size: 30px;
+  line-height: 44px;
+
+  
+  -webkit-transform: translateX(50%);
+  transform: translateX(50%);
+  color: #fff;
+
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+  pointer-events: auto;
+
+  text-decoration: none;
+}
+
+.back-left{
+  position: fixed;
+  top: 2em;
+  right: 12.5%;
+}
+
+img:hover{
+  opacity: 0.5;
+}
+
+/* Larger Phones and Tablets (2 items per row) */
+@media all and (min-width: 768px) {
+  .container .mix, .container .gap {
+    width: 48%; } }
+/* Desktop (3 items per row) */
+@media all and (min-width: 1024px) {
+  .container .mix, .container .gap {
+    width: 33%; } }
+
+/*# sourceMappingURL=flexMix.css.map */

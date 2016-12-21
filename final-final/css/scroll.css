@@ -1,0 +1,80 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+html{
+		background-color: #34495e;
+		font-family: 'minion pro';
+		color: white;
+}
+
+h2 {
+	font-size: 5em;
+	font-weight: 300;
+	line-height: 1;
+	padding-bottom: 10px;
+}
+
+ p {
+	font-size: 1.5em;
+	font-weight: 300;
+}
+
+.scroll-box{
+	margin: 80px 120px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.scroll-box-text{
+	display: flex;
+	flex-direction: column;
+	white-space: pre-line;
+}
+
+.scroll-box-img{
+	display: flex;
+	flex-direction: column;
+}
+
+.for-spacing{
+	width: 100%;
+	height: 50px;
+}
+
+.text-right{
+	text-align: right;
+}
+
+.scroll-box-text a{
+	color: white;
+}
+
+/* ======= back arrow ======= */
+
+.back-arrow {
+
+  font-size: 30px;
+  line-height: 44px;
+
+  
+  -webkit-transform: translateX(50%);
+  transform: translateX(50%);
+  color: #fff;
+
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+  pointer-events: auto;
+
+  text-decoration: none;
+}
+
+.back-right{
+  position: fixed;
+  top: 2em;
+  left: 7%;
+}

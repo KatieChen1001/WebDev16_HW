@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Katie Homes</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!-- Greensock -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<!-- ======= page transition plugin ======== -->
+	<!-- animsition.css -->
+	<link rel="stylesheet" href="css/animsition.css">
+	<!-- animsition.js -->
+	<script src="js/animsition.js"></script>
+	<!-- ===== import font for homepage ====== -->
+	<link href="https://fonts.googleapis.com/css?family=The+Girl+Next+Door" rel="stylesheet">
+
+
+</head>
+<body>
+
+<div class="animsition-overlay" data-animsition-overlay="true">
+
+	<div class="intro inspiring tlt">
+		<h1><a href="flexMix.html" class="animsition-link" data-animsition-out-class="overlay-slide-out-left" data-animsition-out-duration="500"  id="inspiring">INSPIRING</a></h1>
+	</div>
+
+	<div class="intro inspired tlt">
+		<h1 id="inspired"><a href="scroll.html" class="animsition-link" data-animsition-out-class="overlay-slide-out-right" data-animsition-out-duration="500"  id="inspiring">INSPIRED</a></h1>
+	</div>
+
+</div>
+
+
+
+	<!-- ================================= JS Code ================================ -->
+	<script type="text/javascript">
+
+	$(document).ready(function(){
+
+		$(".animsition-overlay").animsition({
+		    inClass: 'overlay-slide-in-top',
+		    outClass: 'overlay-slide-out-top',
+		    inDuration: 1500,
+		    outDuration: 800,
+		    linkElement: '.animsition-link',
+
+		    loading: true,
+		    loadingParentElement: 'body', 
+		    loadingClass: 'animsition-loading',
+		    loadingInner: '', 
+		    timeout: false,
+		    timeoutCountdown: 5000,
+		    onLoadEvent: true,
+		    browser: [ 'animation-duration', '-webkit-animation-duration'],
+		    // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+		    // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+		    overlay : true,
+		    overlayClass : 'animsition-overlay-slide',
+		    overlayParentElement : 'body',
+		    transition: function(url){ window.location.href = url; }
+		});
+
+
+		// initiate timeline to animate text on main page
+  		var $left = $('.inspiring'),
+			$right = $('.inspired');
+
+		var tlHome = new TimelineLite();
+
+		tlHome.from($left, 1, {x:-500, opacity:0})
+		.from($right, 1, {x:1780, opacity:0});
+
+	});
+	</script>
+	
+</body>
+</html>

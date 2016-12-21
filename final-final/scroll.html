@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>scroll</title>
+	<link rel="stylesheet" type="text/css" href="css/scroll.css">
+</head>
+<body>
+<!-- ============================== Typographic Design ============================= -->
+<section>
+	<div class="scroll-box section1">
+
+		<div class="scroll-box-text text-left" id="one-left">
+			<h2>Typographic Design</h2>
+			<p>Some designs I did for Intro to Design class.</p>
+		</div>
+		<div class="scroll-box-img" id="one-right">
+			<img src="img/scroll/T1.jpg" alt="img01" width="400px" height="400px">
+		</div>
+
+	</div>
+</section>
+
+<div class="for-spacing"></div>
+
+<!-- ============================== Animation ============================= -->
+
+<section>
+	<div class="scroll-box section2">
+
+		<div class="scroll-box-img" id="two-left">
+			<img src="img/scroll/A1.jpg" alt="img01" width="400px" height="400px">
+		</div>
+		<div class="scroll-box-text text-right" id="two-right">
+			<h2>Animation</h2>
+			<p>"History of Typography" is a final project I did for my Intro to Digital Art class. Inspired by Ben Barrett-Forrest's stop motion animation 
+			<a href="https://www.youtube.com/watch?v=wOgIkxAfJsk">"The History of Typography"</a> </p>
+		</div>
+
+	</div>
+</section>
+
+<div class="for-spacing"></div>
+
+<!-- ============================== Photography ============================= -->
+
+<section>
+	<div class="scroll-box section3">		
+		<div class="scroll-box-text text-left" id="three-right">
+			<h2>Photography</h2>
+			<p>Some inspiring photographers:
+
+			<a href="http://www.uelsmann.net/">Jerry Uelsmann</a>
+			<a href="https://www.behance.net/paronsuren">Suren Manvelyan</a>
+			<a href="https://www.behance.net/tomhussey">Tom Hussey</a></p>
+		</div>
+		<div class="scroll-box-img" id="three-left">
+			<img src="img/scroll/p1.jpg" alt="img01" width="400px" height="400px">
+		</div>
+	</div>
+</section>
+
+<div class="for-spacing"></div>
+
+<!-- ============================== Artworks ============================= -->
+
+<section>
+	<div class="scroll-box section4">
+
+		<div class="scroll-box-img" id="four-right">
+			<img src="img/scroll/art.png" alt="img01" width="400px" height="400px">
+		</div>
+		<div class="scroll-box-text text-right" id="four-left">
+			<h2>Artworks</h2>
+			<p>Some creative and avant garde artists:
+
+			<a href="http://jamesreads.tumblr.com/">James R. Eads</a>
+			<a href="http://pipilottirist.net/">Pipilotti Rist</a>
+			<a href="https://www.guggenheim.org/exhibition/agnes-martin">Agnes Martin</a>
+			</p>
+		</div>
+		
+	</div>
+</section>
+
+<div class="for-spacing"></div>
+
+<!-- ============================== miscellaneous ============================= -->
+
+<section>
+	<div class="scroll-box section5">
+
+		<div class="scroll-box-text text-left" id="five-left">
+			<h2>Miscellaneous</h2>
+			<p>I have reserved this section for creative writing/thinking/writer/thinker</p>
+		</div>
+		<div class="scroll-box-img" id="five-right">
+			<img src="img/scroll/W1.jpg" alt="img01" width="400px" height="400px">
+		</div>
+		
+	</div>
+</section>
+
+<div class="animsition-overlay" data-animsition-overlay="true">
+    <a href="home.html" class="back-arrow back-right animsition-link" data-animsition-out-class="overlay-slide-out-left" data-animsition-out-duration="500">&larr;</a>
+</div>
+
+
+<!-- Greensock -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<!-- Load ScrollMagic CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+
+<!-- ======= page transition plugin ======== -->
+<!-- animsition.css -->
+<link rel="stylesheet" href="css/animsition.css">
+<!-- animsition.js -->
+<script src="js/animsition.js"></script>
+
+<script type="text/javascript">
+
+    var $1lf = $('#one-left'),
+        $1rt = $('#one-right'),
+        $2lf = $('#two-left'),
+        $2rt = $('#two-right'),
+        $3lf = $('#three-left'),
+        $3rt = $('#three-right'),
+        $4lf = $('#four-left'),
+        $4rt = $('#four-right')
+        $5lf = $('#five-left'),
+        $5rt = $('#five-right');
+
+	    // initiate scrollMagic
+
+	 	var ctrl = new ScrollMagic.Controller({
+		    globalSceneOptions: {
+		        triggerHook: 'onEnter'
+	    	}	
+		});
+
+		var tlSec1 = new TimelineMax();
+	 	tlSec1.from($1lf, 2, {x:-500, opacity:0})
+	    .from($1rt, 1, {x:1780, opacity:0})
+
+	 	var scene1 = new ScrollMagic.Scene({triggerElement: ".section1", triggerHook: 'onEnter', triggerOffset: 400, duration: 300})
+    	.addTo(ctrl)
+    	.setTween(tlSec1);
+		
+		var tlSec2 = new TimelineMax();
+	 	tlSec2.from($2lf, 2, {x:-500, opacity:0})
+	    .from($2rt, 1, {x:1780, opacity:0},'0')
+
+	 	var scene2 = new ScrollMagic.Scene({triggerElement: ".section2", triggerHook: 'onEnter', duration: 500})
+    	.addTo(ctrl)
+    	.setTween(tlSec2);
+
+    	var tlSec3 = new TimelineMax();
+	 	tlSec3.from($3lf, 2, {x:-500, opacity:0})
+	    .from($3rt, 1, {x:1780, opacity:0},'0')
+
+	 	var scene3 = new ScrollMagic.Scene({triggerElement: ".section3", triggerHook: 'onEnter', duration: 500})
+    	.addTo(ctrl)
+    	.setTween(tlSec3);
+
+    	var tlSec4 = new TimelineMax();
+	 	tlSec4.from($4lf, 2, {x:-500, opacity:0})
+	    .from($4rt, 1, {x:1780, opacity:0},'0')
+
+	 	var scene4 = new ScrollMagic.Scene({triggerElement: ".section4", triggerHook: 'onEnter', duration: 500})
+    	.addTo(ctrl)
+    	.setTween(tlSec4);
+
+    	var tlSec5 = new TimelineMax();
+	 	tlSec5.from($5lf, 2, {x:-500, opacity:0})
+	    .from($5rt, 1, {x:1780, opacity:0},'0')
+
+	 	var scene5 = new ScrollMagic.Scene({triggerElement: ".section5", triggerHook: 'onEnter', duration: 500})
+    	.addTo(ctrl)
+    	.setTween(tlSec5);
+
+
+    	 $(document).ready(function() {
+    	 	$(".animsition-overlay").animsition({
+            inClass:'overlay-slide-in-left',
+            outClass:'overlay-slide-out-right',
+            inDuration: 1500,
+            outDuration: 800,
+            linkElement: '.animsition-link',
+            // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+            loading: true,
+            loadingParentElement: 'body', //animsition wrapper element
+            loadingClass: 'animsition-loading',
+            loadingInner: '', // e.g '<img src="loading.svg" />'
+            timeout: false,
+            timeoutCountdown: 5000,
+            onLoadEvent: true,
+            browser: [ 'animation-duration', '-webkit-animation-duration'],
+            // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+            // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+            overlay : true,
+            overlayClass : 'animsition-overlay-slide',
+            overlayParentElement : 'body',
+            transition: function(url){ window.location.href = url; }
+        });
+    });
+
+
+</script>
+
+
+</body>
+</html>
